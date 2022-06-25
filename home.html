@@ -24,5 +24,27 @@
             <h3 class="tempmin_max">Min 39°C | Max 45°C</h3>
         </div>
     </div>
+
+    <script>
+        const curDate = document.getAnimations('date');
+        let weathercon = document.getElementById('weathercon');
+        const tempStatus = "Clouds";
+
+        const getCurrentDay = () => {
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Tuesday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            let currentTime = new Date();
+            console.log(weekday[currentTime.getDay()]);
+        };
+
+        getCurrentDay();
+    </script>
 </body>
 </html>
