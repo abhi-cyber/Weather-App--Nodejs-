@@ -26,7 +26,7 @@
     </div>
 
     <script>
-        const curDate = document.getAnimations('date');
+        const curDate = document.getElementById('date');
         let weathercon = document.getElementById('weathercon');
         const tempStatus = "Clouds";
 
@@ -41,47 +41,47 @@
             weekday[6] = "Saturday";
 
             let currentTime = new Date();
-            console.log(weekday[currentTime.getDay()]);
+            let day = weekday[currentTime.getDay()];
+            return day;
         };
 
         const getCurrentTime = () => {
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "June",
+          "July",
+          "Aug",
+          "Sept",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
 
-            var months = [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "June",
-                "July",
-                "Aug",
-                "Sept",
-                "Oct",
-                'Nov',
-                "Dec",
-            ];
+        var now = new Date();
+        var month = months[now.getMonth() + 1];
+        var date = now.getDate();
 
-            var now = new Date();
-            var month = months[now.getMonth() + 1];
-            var day = now.getDate();
+        let hours = now.getHours();
+        let mins = now.getMinutes();
 
-            let hours = now.getHours();
-            let mins = now.getMinutes();
-            let periods = "AM";
+        let periods = "AM";
 
-            if(hours > 11) {
-                periods = "PM";
-                if (hours > 12) hours -= 12;
-            }
-            if (mins < 10) {
-                mins = "0" + mins;
-            }
-
-            console.log(month + '/' + day)
+        if (hours > 11) {
+          periods = "PM";
+          if (hours > 12) hours -= 12;
+        }
+        if (mins < 10) {
+          mins = "0" + mins;
         }
 
-        getCurrentDay();
-        getCurrentTime();
+        return `${month} ${date} | ${hours}:${mins}${periods}`;
+      };
+
+      curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
     </script>
 </body>
 </html>
