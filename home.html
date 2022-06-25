@@ -44,7 +44,31 @@
             console.log(weekday[currentTime.getDay()]);
         };
 
+        const getCurrentTime = () => {
+
+            var months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "June",
+                "July",
+                "Aug",
+                "Sept",
+                "Oct",
+                'Nov',
+                "Dec",
+            ];
+
+            var now = new Date();
+            var month = months[now.getMonth() + 1];
+            var day = now.getDate();
+            console.log(month + '/' + day)
+        }
+
         getCurrentDay();
+        getCurrentTime();
     </script>
 </body>
 </html>
